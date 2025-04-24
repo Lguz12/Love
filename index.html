@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nosotros 💖</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff0f5;
+            color: #333;
+        }
+        header {
+            background: #ffb6c1;
+            text-align: center;
+            padding: 1.5em 0;
+            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .love-note {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 1.1em;
+            text-align: center;
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #ffe4e1;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5em;
+                padding: 1em 0;
+            }
+            .love-note {
+                margin: 15px;
+                padding: 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Nuestro Amor 💞
+    </header>
+
+    <div class="gallery">
+        <img src="assets/1.jpg" alt="Foto 1">
+        <img src="assets/2.jpg" alt="Foto 2">
+        <img src="assets/3.jpg" alt="Foto 3">
+        <img src="assets/4.jpg" alt="Foto 4">
+        <img src="assets/5.jpg" alt="Foto 1">
+        <img src="assets/6.jpg" alt="Foto 2">
+        <img src="assets/7.jpg" alt="Foto 3">
+        <img src="assets/8.jpg" alt="Foto 4">
+    </div>
+
+    <div class="love-note" id="loveNote">
+        "Desde que llegaste a mi vida, cada día es más bonito. Gracias por ser tú, por tu amor, tu sonrisa y todo lo que compartimos. Te amo con todo mi corazón. 💖"
+    </div>
+
+    <footer>
+        Con todo mi amor, para ti 💝
+    </footer>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('loveNote').innerText = 
+            'Eres mi lugar favorito, mi momento perfecto, y mi razón para sonreír. Siempre tú. ❤️';
+        }, 8000);
+    </script>
+</body>
+</html>
