@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nosotros 💖</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff0f5;
+            color: #333;
+            position: relative;
+        }
+
+        header {
+            background: #ffb6c1;
+            text-align: center;
+            padding: 1.5em 0;
+            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes entradaImagen {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery {
+            display: grid;
+            gap: 10px;
+            padding: 20px;
+            justify-items: center;
+            /* Centra las imágenes horizontalmente */
+            align-items: center;
+            /* Centra las imágenes verticalmente */
+        }
+
+        .gallery img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 250px; /* Asegura que no se desborde */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            animation: entradaImagen 1s ease-out; /* Se agrega la animación */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .love-note {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            text-align: center;
+            line-height: 1.6;
+            transition: opacity 1s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #ffe4e1;
+            color: #555;
+        }
+
+        /* Estilo para PC (2 filas de 4 columnas) */
+        @media (min-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 columnas */
+            }
+        }
+
+        /* Estilo para móviles (4 filas de 2 columnas) */
+        @media (max-width: 767px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columnas */
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5em;
+                padding: 1em 0;
+            }
+
+            .love-note {
+                margin: 15px;
+                padding: 15px;
+                font-size: 1em;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 1.5s forwards;
+            z-index: 999;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Para mi preciosa 💞
+    </header>
+
+    <div class="gallery">
+        <img src="1.jpg" alt="Foto 1">
+        <img src="2.jpg" alt="Foto 2">
+        <img src="3.jpg" alt="Foto 3">
+        <img src="4.jpg" alt="Foto 4">
+        <img src="5.jpg" alt="Foto 5">
+        <img src="6.jpg" alt="Foto 6">
+        <img src="7.jpg" alt="Foto 7">
+        <img src="8.jpg" alt="Foto 8">
+    </div>
+
+    <div class="love-note" id="loveNote">
+        "Desde que llegaste a mi vida, cada día es más bonito. Gracias por ser tú, por tu amor, tu sonrisa y todo lo que
+        compartimos. Te amo con todo mi corazón. 💖"
+    </div>
+
+    <footer>
+        Con todo mi amor, para ti. Felices 3 meses mi vida hermosa💝
+    </footer>
+
+    <script>
+        const frases = [
+            "Desde que llegaste a mi vida, cada día es más bonito. Gracias por ser tú, por tu amor, tu sonrisa y todo lo que compartimos. Te amo con todo mi corazón. 💖",
+            "Eres mi lugar favorito, mi momento perfecto, y mi razón para sonreír. Siempre tú. ❤️",
+            "Contigo, todo es mejor. Gracias por existir. 🌟",
+            "Te amo más de lo que las palabras pueden expresar. 💘",
+            "Desde que te conocí mi amor es mas grande ",
+            "Soy mejor persona y todo lo cotidiano se vuelve extraordinario",
+            "Eres la mejor persona que he tenido en mi vida, eres la chica de mis sueños y el amor de mi alma 🥰"
+        ];
+
+        let index = 1;
+        setInterval(() => {
+            const note = document.getElementById('loveNote');
+            note.style.opacity = 0;
+            setTimeout(() => {
+                note.innerText = frases[index % frases.length];
+                note.style.opacity = 1;
+                index++;
+            }, 500);
+        }, 5000);
+
+        // Función para generar corazones
+        const generarCorazon = (event) => {
+            const corazon = document.createElement('div');
+            corazon.classList.add('heart');
+            corazon.innerText = '❤️';
+
+            // Posiciona el corazón en un lugar aleatorio en la pantalla
+            const x = event.clientX + Math.random() * 50 - 25;  // Aleatorio cerca de donde se hace clic
+            const y = event.clientY + Math.random() * 50 - 25;
+
+            corazon.style.left = `${x}px`;
+            corazon.style.top = `${y}px`;
+
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de que se haya animado
+            setTimeout(() => {
+                corazon.remove();
+            }, 1500);
+        };
+
+        // Añadir evento de clic a todas las imágenes
+        const imagenes = document.querySelectorAll('.gallery img');
+        imagenes.forEach(img => {
+            img.addEventListener('click', generarCorazon);
+        });
+    </script>
+</body>
+
+</html>
