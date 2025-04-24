@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Nosotros 💖</title>
+    <link rel="icon" href="favicon.png" type="image/png">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,6 +46,7 @@
             font-size: 1.1em;
             text-align: center;
             line-height: 1.6;
+            transition: opacity 1s ease;
         }
         footer {
             text-align: center;
@@ -75,10 +77,10 @@
         <img src="2.jpg" alt="Foto 2">
         <img src="3.jpg" alt="Foto 3">
         <img src="4.jpg" alt="Foto 4">
-        <img src="5.jpg" alt="Foto 1">
-        <img src="6.jpg" alt="Foto 2">
-        <img src="7.jpg" alt="Foto 3">
-        <img src="8.jpg" alt="Foto 4">
+        <img src="5.jpg" alt="Foto 5">
+        <img src="6.jpg" alt="Foto 6">
+        <img src="7.jpg" alt="Foto 7">
+        <img src="8.jpg" alt="Foto 8">
     </div>
 
     <div class="love-note" id="loveNote">
@@ -90,9 +92,22 @@
     </footer>
 
     <script>
-        setTimeout(() => {
-            document.getElementById('loveNote').innerText = 
-            'Eres mi lugar favorito, mi momento perfecto, y mi razón para sonreír. Siempre tú. ❤️';
+        const frases = [
+            "Desde que llegaste a mi vida, cada día es más bonito. Gracias por ser tú, por tu amor, tu sonrisa y todo lo que compartimos. Te amo con todo mi corazón. 💖",
+            "Eres mi lugar favorito, mi momento perfecto, y mi razón para sonreír. Siempre tú. ❤️",
+            "Contigo, todo es mejor. Gracias por existir. 🌟",
+            "Te amo más de lo que las palabras pueden expresar. 💘"
+        ];
+
+        let index = 1;
+        setInterval(() => {
+            const note = document.getElementById('loveNote');
+            note.style.opacity = 0;
+            setTimeout(() => {
+                note.innerText = frases[index % frases.length];
+                note.style.opacity = 1;
+                index++;
+            }, 500);
         }, 8000);
     </script>
 </body>
